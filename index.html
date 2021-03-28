@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #353b48;
+        }
+        .header{
+            text-align: center;
+            font-size: 75px;
+            color: #e1b12c;
+        }
+        #name{
+            font-size: 75px;
+            color: #e1b12c;
+            margin-left: 40%;
+            
+        }
+        .welcome{
+            font-size: 75px;
+            color: white;
+            text-align: center;
+            float: inline-end;
+        }
+        #saat{
+            margin-left: 400px;
+            color: #e1b12c;
+            font-size:75px;
+        }
+        .sentence{
+            color: white;
+            text-align: center;
+            font-size: 75px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">Merhaba</h1>
+    <div id="name"></div>
+    <br>
+    <div class="welcome">Hoşgeldin!</div>
+    <br>
+    <span id="saat"></span>
+    <br>
+    <div class="sentence"> tarihinde Kodluyoruz Frontend Web Development Patikası'nın Javascript bölümü 1. Ödevi tamamlanmıştır :)</div>
+    <script>
+
+        let name = prompt("Lütfen adınızı giriniz")
+
+        function ekle(deger){
+            var stringyap = deger.toString();
+            var uzunluk = stringyap.length;
+            if (uzunluk == 1){  
+                return "0" + stringyap;
+            } else {
+                return stringyap;
+            }
+        }
+
+        function saatguncelle(){
+            var zaman = new Date();
+            var saatdegeri = zaman.getHours();
+            var dakikadegeri = zaman.getMinutes();
+            var saniyedegeri = zaman.getSeconds();
+            var gundegeri = zaman.getDay()
+            var gunler = ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+            document.getElementById("saat").innerHTML = ekle(saatdegeri) + ":" + ekle(dakikadegeri) + ":" + ekle(saniyedegeri) + ":" + ekle(gunler[gundegeri]); 
+        }
+
+        setInterval(saatguncelle,1000);
+
+        var yazdir = document.getElementById("name");
+        yazdir.innerHTML =" " + name + "! ";
+        
+
+        
+
+    </script>
+</body>
+</html>
